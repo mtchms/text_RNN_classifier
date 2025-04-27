@@ -1,6 +1,7 @@
 ![image](https://github.com/user-attachments/assets/0caedbfc-76eb-4a18-ad88-e3912aba76dc)
-![Без имени_1](https://github.com/user-attachments/assets/b04dab82-bb7a-4be1-9b3b-53861eaa7de1)
-![Без имени](https://github.com/user-attachments/assets/0aa2b35f-9e57-45f7-8f06-f7fbf487f2d3)
+![image](https://github.com/user-attachments/assets/bfe3424d-f730-4d1e-b0e7-9d285ffd7024)
+![image](https://github.com/user-attachments/assets/fa38cd29-9d2f-45fe-b286-af3e982ee55d)
+
 
 Модель классификации одежды на основе MobileNetV2
 Описание проекта
@@ -54,5 +55,4 @@ ModelCheckpoint — сохранение лучшей модели в файл f
 Лучший accuracy показанный моделью на валидационной выборке был равен 0.8752.
 Ниже некоторые примеры работы модели:
 
-![Без имени_3](https://github.com/user-attachments/assets/0486ad0b-0e06-4d2e-bdab-99ed49888111)
 ![Без имени_2](https://github.com/user-attachments/assets/c9de81b0-00ac-442c-aaae-1e16c9e0fad3)
