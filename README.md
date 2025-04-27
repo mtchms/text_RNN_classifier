@@ -4,14 +4,18 @@
 
 
 Модель классификации одежды на основе MobileNetV2
-Описание проекта
+
+
 Эта модель обучалась на датасете Fashion Product Images с Kaggle:
 https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset
+
 
 Цель модели — по изображению одежды предсказать её категорию (articleType).
 Модель принимает входы размером (128, 128, 3). На выходе — вектор вероятностей для всех классов (softmax).
 
+
 Данные
+
 Источник: Fashion Product Images Dataset (Kaggle)
 
 Используются только те примеры, где заполнены поля id и articleType. Отбираются только те категории (articleType), в которых есть минимум 2 изображения.
@@ -27,6 +31,7 @@ Dense(128, activation='relu')
 Dense(num_classes, activation='softmax')
 
 Параметры обучения
+
 Размер изображений: 128×128 пикселей
 
 Размер батча: 32
@@ -40,6 +45,7 @@ Dense(num_classes, activation='softmax')
 Эпохи: до 20, с остановкой при отсутствии улучшений (EarlyStopping) (остановка произошла на 17 эпохе)
 
 Коллбэки:
+
 EarlyStopping по val_accuracy (patience=5)
 
 ReduceLROnPlateau по val_loss (уменьшение lr в 2 раза, patience=3)
@@ -48,6 +54,7 @@ ModelCheckpoint — сохранение лучшей модели в файл f
 
 
 Особенности
+
 Применяется балансировка классов через стратифицированное разбиение (train_test_split с stratify).
 
 Используется динамическая генерация батчей через генераторы (для экономии памяти).
