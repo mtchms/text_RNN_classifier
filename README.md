@@ -58,6 +58,9 @@ ModelCheckpoint — сохранение лучшей модели в файл f
 
 Лучший accuracy показанный моделью на валидационной выборке был равен 0.8752.
 
+***Код обучения модели*** - project.py
+***Сама модель*** - fashion_model.keras
+
 ![image](https://github.com/user-attachments/assets/41618d77-d459-4952-8b03-db5896da816b)
 ![image](https://github.com/user-attachments/assets/bfe3424d-f730-4d1e-b0e7-9d285ffd7024)
 ![image](https://github.com/user-attachments/assets/fa38cd29-9d2f-45fe-b286-af3e982ee55d)
