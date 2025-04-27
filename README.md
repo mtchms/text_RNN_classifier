@@ -1,4 +1,8 @@
-![image](https://github.com/user-attachments/assets/0caedbfc-76eb-4a18-ad88-e3912aba76dc)Модель классификации одежды на основе MobileNetV2
+![image](https://github.com/user-attachments/assets/0caedbfc-76eb-4a18-ad88-e3912aba76dc)
+![Без имени_1](https://github.com/user-attachments/assets/b04dab82-bb7a-4be1-9b3b-53861eaa7de1)
+![Без имени](https://github.com/user-attachments/assets/0aa2b35f-9e57-45f7-8f06-f7fbf487f2d3)
+
+Модель классификации одежды на основе MobileNetV2
 Описание проекта
 Эта модель обучалась на датасете Fashion Product Images с Kaggle:
 https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset
@@ -20,8 +24,6 @@ GlobalAveragePooling2D
 Dense(128, activation='relu')
 
 Dense(num_classes, activation='softmax')
-![Без имени_1](https://github.com/user-attachments/assets/b04dab82-bb7a-4be1-9b3b-53861eaa7de1)
-![Без имени](https://github.com/user-attachments/assets/0aa2b35f-9e57-45f7-8f06-f7fbf487f2d3)
 
 Параметры обучения
 Размер изображений: 128×128 пикселей
