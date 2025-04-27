@@ -3,7 +3,7 @@
 ![image](https://github.com/user-attachments/assets/fa38cd29-9d2f-45fe-b286-af3e982ee55d)
 
 
-Модель классификации одежды на основе MobileNetV2
+***Модель классификации одежды на основе MobileNetV2***
 
 
 Эта модель обучалась на датасете Fashion Product Images с Kaggle:
@@ -14,7 +14,7 @@ https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset
 Модель принимает входы размером (128, 128, 3). На выходе — вектор вероятностей для всех классов (softmax).
 
 
-Данные
+***Данные***
 
 Источник: Fashion Product Images Dataset (Kaggle)
 
@@ -22,7 +22,7 @@ https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset
 
 Базовой сетью послужила MobileNetV2, верхние слои были удалены.
 
-Дополнительные слои:
+***Дополнительные слои:***
 
 GlobalAveragePooling2D
 
@@ -30,7 +30,7 @@ Dense(128, activation='relu')
 
 Dense(num_classes, activation='softmax')
 
-Параметры обучения
+***Параметры обучения***
 
 Размер изображений: 128×128 пикселей
 
@@ -44,7 +44,7 @@ Dense(num_classes, activation='softmax')
 
 Эпохи: до 20, с остановкой при отсутствии улучшений (EarlyStopping) (остановка произошла на 17 эпохе)
 
-Коллбэки:
+***Коллбэки:***
 
 EarlyStopping по val_accuracy (patience=5)
 
@@ -53,7 +53,7 @@ ReduceLROnPlateau по val_loss (уменьшение lr в 2 раза, patience
 ModelCheckpoint — сохранение лучшей модели в файл fashion_model.keras
 
 
-Особенности
+***Особенности***
 
 Применяется балансировка классов через стратифицированное разбиение (train_test_split с stratify).
 
