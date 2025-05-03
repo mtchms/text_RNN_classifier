@@ -71,7 +71,6 @@ def create_model(input_shape, num_classes):
     )
     return model
 
-
 def main():
     train_df, val_df, label_mapping = load_data()
 
