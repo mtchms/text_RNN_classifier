@@ -1,3 +1,4 @@
+
 ![image](https://github.com/user-attachments/assets/0caedbfc-76eb-4a18-ad88-e3912aba76dc) 
 
 ***Модель классификации одежды на основе MobileNetV2***
