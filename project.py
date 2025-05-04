@@ -10,7 +10,6 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 
-
 CSV_PATH = 'styles.csv'
 IMAGES_DIR = 'images'
 IMG_SIZE = (128, 128)
