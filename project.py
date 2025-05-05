@@ -17,6 +17,7 @@ BATCH_SIZE = 32
 EPOCHS = 20
 MODEL_FILE = 'fashion_model.keras'
 
+
 def load_data():
     df = pd.read_csv(CSV_PATH, on_bad_lines='skip')
     df = df.dropna(subset=['id', 'articleType'])
