@@ -51,11 +51,11 @@ class Model():
             logits = tf.matmul(outputs[-1], softmax_w) + softmax_b
             self.probs = tf.nn.softmax(logits)
 
-        # self.cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=self.targets))  # Softmax loss
-        self.cost = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.targets))  # Softmax loss
+        # self.cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=self.targets))
+        self.cost = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.targets)) 
         self.final_state = last_state
         self.lr = tf.Variable(0.0, trainable=False)
-        self.optimizer = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.cost)  # Adam Optimizer
+        self.optimizer = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.cost)  
 
         self.correct_pred = tf.equal(tf.argmax(self.probs, 1), self.targets)
         self.correct_num = tf.reduce_sum(tf.cast(self.correct_pred, tf.float32))
