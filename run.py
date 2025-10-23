@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os
 import sys
 import time
@@ -11,7 +8,6 @@ import subprocess
 def run(rootdir):
     command1 = 'cd {rootdir}'.format(rootdir=rootdir)
 
-    # 训练模型
     command2 = '''python {train_py} \
                     --utils_dir         {utils_dir} \
                     --data_path         {data_path} \
@@ -29,7 +25,7 @@ def run(rootdir):
                                                                       utils_dir        ='utils',
                                                                       data_path        ='data/train.csv',
                                                                       save_dir         ='save',
-                                                                      model            ='lstm',  # rnn/gru/lstm/bn-lstm
+                                                                      model            ='lstm',  
                                                                       rnn_size         =128,
                                                                       num_layers       =1,
                                                                       batch_size       =128,
@@ -40,7 +36,7 @@ def run(rootdir):
                                                                       decay_rate       =0.9,
                                                                       continue_training='False')
 
-    # 测试模型
+
     command3 = '''python {test_py} \
                     --save_dir          {save_dir} \
                     --how               {how} \
@@ -48,12 +44,12 @@ def run(rootdir):
                     --data_path         {data_path} \
                     --result_path       {result_path}'''.format(test_py         ='test.py',
                                                                 save_dir        ='save',
-                                                                how             ='accuracy',  # sample为测试单个例子，sample_text不能为None；predict为预测多个例子；accuracy为预测并检验多个例子
+                                                                how             ='accuracy',  
                                                                 sample_text     =' ',
-                                                                data_path       ='data/test.csv',  # predict和accuracy模式下必需
-                                                                result_path     ='data/result.csv')  # predict模式下必需
+                                                                data_path       ='data/test.csv',  
+                                                                result_path     ='data/result.csv') 
 
-    # 交叉验证
+
     command4 = '''python {cross_py} \
                     --utils_dir         {utils_dir} \
                     --data_path         {data_path} \
@@ -70,7 +66,7 @@ def run(rootdir):
                                                                utils_dir        ='utils',
                                                                data_path        ='data/data.csv',
                                                                save_dir         ='save',
-                                                               model            ='lstm',  # rnn/gru/lstm/bn-lstm
+                                                               model            ='lstm', 
                                                                rnn_size         =128,
                                                                num_layers       =1,
                                                                batch_size       =128,
