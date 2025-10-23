@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os
 import sys
 
@@ -15,9 +12,6 @@ from tensorflow.contrib.rnn.python.ops import core_rnn_cell
 
 
 class BatchNormLSTMCell(core_rnn_cell.RNNCell):
-    """
-    Batch normalized LSTM as described in http://arxiv.org/abs/1603.09025
-    """
 
     def __init__(self, num_units, is_training=False, forget_bias=1.0, activation=tanh, reuse=None):
         self._num_units = num_units
@@ -58,7 +52,6 @@ class BatchNormLSTMCell(core_rnn_cell.RNNCell):
 
             hidden = bn_xh + bn_hh + bias
 
-            # i = input_gate, j = new_input, f = forget_gate, o = output_gate
             i, j, f, o = array_ops.split(value=hidden, num_or_size_splits=4, axis=1)
 
             new_c = (c * sigmoid(f + self._forget_bias) + sigmoid(i) * self._activation(j))
@@ -81,12 +74,9 @@ def orthogonal(shape):
 def bn_lstm_identity_initializer(scale):
 
     def _initializer(shape, dtype=tf.float32, partition_info=None):
-        """
-        Ugly cause LSTM params calculated in one matrix multiply
-        """
+
 
         size = shape[0]
-        # gate (j) is identity
         t = np.zeros(shape)
         t[:, size:size * 2] = np.identity(size) * scale
         t[:, :size] = orthogonal([size, size])
@@ -104,9 +94,7 @@ def orthogonal_initializer():
 
 
 def batch_norm(x, name_scope, is_training, epsilon=1e-3, decay=0.999):
-    """
-    Assume 2d [batch, values] tensor
-    """
+
 
     with tf.variable_scope(name_scope):
         training = tf.constant(is_training)
