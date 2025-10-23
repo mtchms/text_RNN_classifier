@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os, sys
 import time
 
@@ -36,15 +33,13 @@ class Model():
         self.cell = cell = rnn.MultiRNNCell([cell] * args.num_layers)
 
         self.input_data = tf.placeholder(tf.int64, [None, args.seq_length])
-        # self.targets = tf.placeholder(tf.int64, [None, args.seq_length])  # seq2seq model
-        self.targets = tf.placeholder(tf.int64, [None, ])  # target is class label
+        self.targets = tf.placeholder(tf.int64, [None, ])  
 
         with tf.variable_scope('embeddingLayer'):
             with tf.device('/cpu:0'):
                 W = tf.get_variable('W', [args.vocab_size, args.rnn_size])
                 embedded = tf.nn.embedding_lookup(W, self.input_data)
 
-                # shape: (batch_size, seq_length, cell.input_size) => (seq_length, batch_size, cell.input_size)
                 inputs = tf.split(embedded, args.seq_length, 1)
                 inputs = [tf.squeeze(input_, [1]) for input_ in inputs]
 
