@@ -9,7 +9,6 @@ from tensorflow.contrib import rnn
 
 from lstm_bn import BatchNormLSTMCell
 
-
 class Model():
     def __init__(self, args, deterministic=False):
         self.args = args
