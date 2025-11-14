@@ -11,7 +11,6 @@ import tensorflow as tf
 from utils import TextLoader
 from model import Model
 
-
 def main():
     rootdir = os.path.dirname(__file__)
     parser = argparse.ArgumentParser()
